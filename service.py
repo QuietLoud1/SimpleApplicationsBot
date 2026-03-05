@@ -48,8 +48,9 @@ def validate_claim(text: str) -> tuple[bool, str, str, str]:
 
 
 async def save_claim(restaurant: str, task: str, file_id: str):
-    url = "https://script.google.com/macros/s/AKfycbyUnj3FW2ofQjhafXVkwxmwGOFR0CSbTuG9k7LFkFObK5Jry6v1Buyh4sNilgT1tTem/exec"
+    url = "https://script.google.com/macros/s/AKfycbytdCFJm6wU9Py4CqM7yJdp7tt5nmRz7aDTUFUcbvBYxeP1_gYD3nbKE035gzcFQPeP/exec"
     current_datetime = datetime.now().strftime("%d/%m/%Y")
+
     payload = {
         "restaurant": restaurant,
         "task": task,
