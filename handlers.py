@@ -35,9 +35,9 @@ async def correct_application_handler(message: Message):
 
     if isClaimed:
         await message.reply(f"""✅ Заявка принята!
-
-Ресторан: {restaurant}
-Текст заявки: "{task_text}"
+                            
+{restaurant}
+✍️ "{task_text}"
 """)
     else:
         await message.reply(f"❌ {error_text}")
