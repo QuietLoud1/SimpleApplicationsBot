@@ -23,7 +23,7 @@ handlers = Router()
 config : Config = load_config()
 
 
-@handlers.message(F.photo, F.caption.startswith("#заявка"), F.chat.type == ChatType.GROUP)
+@handlers.message(F.photo, F.caption.startswith("#заявка"))
 async def correct_application_handler(message: Message):
     if message.caption is None:
         await message.reply("Добавьте подпись к фото с заявкой!")
@@ -52,11 +52,11 @@ async def correct_application_handler(message: Message):
 
     
 
-@handlers.message(CommandStart(), F.chat.type == ChatType.PRIVATE)
-async def start_command_handler(message: Message):
-    await message.answer(LEXICON["apply_only_in_group"])
+# @handlers.message(CommandStart(), F.chat.type == ChatType.PRIVATE)
+# async def start_command_handler(message: Message):
+#     await message.answer(LEXICON["apply_only_in_group"])
 
-@handlers.message(F.text.startswith("#заявка"), ~F.photo, F.chat.type == ChatType.GROUP)
+@handlers.message(F.text.startswith("#заявка"), ~F.photo)
 async def incorrect_application_handler_no_photo(message: Message):
     await message.reply("Заявку можно отправить только с фотографией!")
 

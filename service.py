@@ -27,7 +27,7 @@ def validate_claim(text: str) -> tuple[bool, str, str, str]:
     """
     # Регулярное выражение: #заявка, затем пробелы, (название), пробелы, текст задачи
     pattern = r'^#заявка\s+\(([^)]+)\)\s*(.*)$'
-    match = re.match(pattern, text.strip())
+    match = re.match(pattern, text.strip(), flags=re.DOTALL)
     
     if not match:
         return False, "", "", "Неверный формат. Должно быть: #заявка (НАЗВАНИЕ) текст задачи"
